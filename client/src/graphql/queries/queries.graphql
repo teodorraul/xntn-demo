@@ -1,0 +1,14 @@
+query Measurements {
+    measurements {
+        id
+    }
+}
+
+query Metrics($measurementId: ID!) {
+    metrics(measurementId: $measurementId) {
+        id
+        measuredAt
+        quality
+        value
+    }
+}

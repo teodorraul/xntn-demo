@@ -1,0 +1,18 @@
+type Measurement {
+    id: ID!
+}
+
+type Metric {
+    id: ID!
+    measuredAt: DateTime!
+    type: String!
+    quality: String!
+    value: Float
+}
+
+scalar DateTime
+
+type Query {
+    measurements: [Measurement]
+    metrics(measurementId: ID!): [Metric]
+}

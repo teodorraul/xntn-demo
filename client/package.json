@@ -1,0 +1,50 @@
+{
+    "name": "exnaton-client",
+    "version": "1.0.0",
+    "description": "Exnaton Demo Client",
+    "keywords": [
+        "typescript",
+        "react",
+        "starter"
+    ],
+    "main": "src/index.tsx",
+    "dependencies": {
+        "@apollo/client": "^3.11.8",
+        "@radix-ui/themes": "^3.1.4",
+        "@vanilla-extract/css": "^1.16.0",
+        "@vanilla-extract/recipes": "^0.5.5",
+        "date-fns": "^4.1.0",
+        "graphql": "^16.9.0",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-router-dom": "^6.26.2",
+        "semiotic": "^2.0.3"
+    },
+    "devDependencies": {
+        "@graphql-codegen/cli": "^5.0.2",
+        "@graphql-codegen/typescript": "^4.0.9",
+        "@graphql-codegen/typescript-operations": "^4.2.3",
+        "@graphql-codegen/typescript-react-apollo": "^4.3.2",
+        "@parcel/watcher": "^2.4.1",
+        "@types/react": "17.0.0",
+        "@types/react-dom": "17.0.0",
+        "@vanilla-extract/vite-plugin": "^4.0.16",
+        "@vitejs/plugin-react": "^4.3.2",
+        "concurrently": "^9.0.1",
+        "graphql-scalars": "^1.23.0",
+        "typescript": "^5.6.2",
+        "vite": "^5.4.8"
+    },
+    "scripts": {
+        "dev": "concurrently \"vite --host 0.0.0.0\" \"yarn generate\"",
+        "build": "vite build",
+        "generate": "graphql-codegen",
+        "preview": "vite preview"
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ]
+}

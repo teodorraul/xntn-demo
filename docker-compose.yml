@@ -1,0 +1,38 @@
+services:
+  client:
+    build: ./client
+    container_name: teo-client
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./client:/usr/src/app
+      - /usr/src/app/node_modules
+      # mounts the schema for codegen
+      - ./api/graphql:/usr/src/api/graphql 
+  api:
+    build: ./api
+    container_name: teo-api
+    entrypoint: ["dockerize", "-wait", "tcp://postgres:5432", "-timeout", "30s", "sh", "-c", "yarn migrate && yarn dev"]
+    networks:
+      - infra
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./api:/usr/src/app
+      - /usr/src/app/drizzle
+      - /usr/src/app/node_modules
+    depends_on:
+      - postgres
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+  postgres:
+    container_name: teo-postgres
+    image: postgres:latest
+    networks:
+      - infra
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+networks:
+  infra:

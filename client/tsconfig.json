@@ -1,0 +1,19 @@
+{
+    "include": ["./src/**/*"], // Include source files
+    "exclude": ["node_modules"],
+    "compilerOptions": {
+        "target": "es5", // Set the ECMAScript target version
+        "allowJs": true, // Allow JavaScript files
+        "skipLibCheck": true, // Skip type checking of declaration files
+        "allowSyntheticDefaultImports": true, // Allows default imports from modules with no default export
+        "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file
+        "module": "esnext", // Specify module code generation
+        "moduleResolution": "node", // Specify module resolution strategy
+        "resolveJsonModule": true, // Enables importing JSON modules
+        "isolatedModules": true, // Ensure each file can be safely transpiled without relying on other imports
+        "jsx": "react-jsx",
+        "strict": true,
+        "esModuleInterop": true,
+        "lib": ["dom", "es2015"]
+    }
+}
